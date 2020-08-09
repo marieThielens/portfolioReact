@@ -1,0 +1,75 @@
+@font-face {
+    font-family: "La Belle Aurore";
+    src: url("../fonts/LaBelleAurore.ttf");
+}
+
+body {
+    margin: 0;
+    padding:0;
+    background: #3b3d62;
+    font-family: "Quicksand", "Roboto", "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color:white;
+}
+* {
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+}
+ul, li {
+    margin: 0;
+    padding:0;
+}
+img {
+    max-width:100%;
+}
+li {
+    list-style-type: none;
+}
+
+/* .Home-blockGauche-2::before */
+h1::before{
+    content: "<h1>";
+    font-family: 'La Belle Aurore',cursive;
+    color: #bdbdc5;
+    font-size: 18px;
+    position: absolute;
+    margin-top: -27px;
+    left: 32px;
+}
+
+h1::after{
+    content: "</h1>";
+    font-family: 'La Belle Aurore',cursive;
+    color: #bdbdc5;
+    font-size: 18px;
+    position: absolute;
+    margin-top: 43px;
+}
+.balises {
+    color: #bdbdc5;
+    font-size: 18px;
+    font-family: 'La Belle Aurore',cursive;
+}
+.bodyB {
+    margin-top: 2em;
+    margin-left: 19px;
+}
+.balisesFermeture {
+    margin-top: 3em;
+    position: relative;
+    left:17px;
+
+}
+/* balise body*/
+.balisesFermeture span {
+    position:relative;
+    left: 32px;
+}
+
+@media (max-width: 600px) {
+    .baliseFermeture {
+        margin-top:2em;
+    }
+}

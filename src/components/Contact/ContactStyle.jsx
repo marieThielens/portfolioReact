@@ -1,4 +1,4 @@
-const contactStyle = {
+const ContactStyle = {
     h1: {
         fontSize:60,
         '@media (max-width: 600px)': {
@@ -24,4 +24,4 @@ const contactStyle = {
         color:'white'
     }
 }
-export default contactStyle;
+export default ContactStyle;

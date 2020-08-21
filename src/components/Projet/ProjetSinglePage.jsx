@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { data } from './data';
 
 
 const ProjectSinglePage = props => {
+
+    const [ article, envoyerArticle ] = useState(null)
 
 return (
     <>

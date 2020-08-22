@@ -1,21 +1,67 @@
 import React, { useState } from 'react';
 import ProjectSinglePage from './ProjetSinglePage';
+import ProjectStyle from './ProjectStyle';
 import { data } from './data';
+import { withStyles } from '@material-ui/core'; // npm install @material-ui/styles
+import Button from '@material-ui/core/Button';
+import Container from '@material-ui/core/Container';
 
 
 const Projects = props => {
 
-    const [ articles , envoiArticle] = useState(data);
-    const resultatArticle = data.map((articles) => <li key={articles.id}><h2>{articles.titre}</h2><img src={articles.image}/><p>couou</p></li>);
-    console.log(resultatArticle);
+    const { classes } = props;
+    // variable d'état qui met à jour le dom
+    const [ articles , envoiArticle] = useState(data); // avoir accès à mes données du fichier data
+    const [ categories, envoiChoixCategorie] = useState('ToutMontrer'); // Avoir accès aux différentes cathégorie 
+
+    // Montrer les articles, boucle
+    const resultatArticle = data.map((articles) => <li className={classes.containerProject} key={articles.id}><h2>{articles.titre}</h2><p></p><img src={articles.image}/></li>);
+   // console.log(resultatArticle);
+
+    // Choisir quelle(s) catégorie d'article(s) on montre
+    const choisirCategorieArticle = choisirCategorieArticle =>  {
+       
+        envoiChoixCategorie(choisirCategorieArticle)
+        let nouveauTableauData = [];
+        if (choisirCategorieArticle === 'ToutMontrer'){
+            nouveauTableauData = data;
+        }
+        else {
+            data.forEach(project => {
+              
+                if (project.categorie.indexOf(choisirCategorieArticle) >= 0){  
+                    nouveauTableauData.push(project)
+                  //  console.log(nouveauTableauData);
+                  
+                }
+            });
+        }
+        envoiArticle(nouveauTableauData)
+    }
+
+
 return (
     <>
+    <div className="balises bodyB">&lsaquo;body&rsaquo;</div>
+    <Container maxWidth="lg">
+        <h1>Mes réalisations</h1>
+        <p>Venez découvrir les différents projets et tutoriels sur lesquels j'ai travaillé.</p>
 
-    <div>{resultatArticle}</div>
+        <div className={classes.containerBouton}>
+            <Button className={classes.bouton}>Tout montrer</Button>
+            <Button className={classes.bouton} onClick={() => choisirCategorieArticle('html') }>HTML</Button>
+            <Button className={classes.bouton}>React</Button>
+            <Button className={classes.bouton}>WordPress</Button>
+            <Button className={classes.bouton}>Tutos</Button>
+        </div>
+        <div className={classes.papaProject}>{resultatArticle}</div>
+    </Container>
+    <div className="balises balisesFermeture"><span>&lsaquo;/body&rsaquo;</span> <br />&lsaquo;/html&rsaquo;</div>
+
+
 
     
 
-        <p>Venez découvrir les différents projets et tutoriels sur lesquels j'ai travaillé.</p>
         <div className="project">
 
 
@@ -36,4 +82,4 @@ return (
     </>
 )
 } 
-export default Projects;
+export default withStyles(ProjectStyle)(Projects);

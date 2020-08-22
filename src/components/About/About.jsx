@@ -9,8 +9,17 @@ const About = props => {
     return(
     <>
     <div className="balises bodyB">&lsaquo;body&rsaquo;</div>
-    <Container className={classes.container} maxWidth="lg">
-        <h1>A propos de moi</h1>
+    <Container className={classes.containerAbout} maxWidth="lg">
+        <div>
+            <h1>A propos de moi</h1>
+        </div>
+        <div className={classes.blockPiramide}>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
     </Container>
     <div className="balises balisesFermeture"><span>&lsaquo;/body&rsaquo;</span> <br />&lsaquo;/html&rsaquo;</div>
     </>

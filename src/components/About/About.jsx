@@ -13,12 +13,12 @@ const About = props => {
         <div>
             <h1>A propos de moi</h1>
         </div>
-        <div className={classes.blockPiramide}>
+        <section className={classes.blockPiramide}>
             <div></div>
             <div></div>
             <div></div>
             <div></div>
-        </div>
+        </section>
 
     </Container>
     <div className="balises balisesFermeture"><span>&lsaquo;/body&rsaquo;</span> <br />&lsaquo;/html&rsaquo;</div>
